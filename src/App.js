@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LoginScreen from "./components/LoginScreen/LoginScreen";
+import Dashboard from "./components/Dashboard/Dashboard"
+import { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoggedIn: false
+    };
+  }
+
+  handleLogin = (event) => {
+    this.setState({ isLoggedIn: true})
+  };
+
+  render() {
+
+    const loginOrDashboard = this.state.isLoggedIn ? <Dashboard /> : <LoginScreen loginButtonClick={this.handleLogin}/>
+
+    return (
+      <div className="App">
+        {loginOrDashboard}
+      </div>
+    );
+  }
 }
 
 export default App;

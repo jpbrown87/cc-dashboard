@@ -1,9 +1,15 @@
 import React from "react";
 
-const Dashboard = () => {
+const Dashboard = ({logoutButtonClick}) => {
   return (
     <div>
-        <p>YOU MADE IT!</p>
+      <h1>DASHBOARD</h1>
+      <button
+        onClick={(event) => logoutButtonClick(event)}
+        className="logout-button"
+      >
+        Logout
+      </button>
     </div>
   );
 };

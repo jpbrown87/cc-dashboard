@@ -12,21 +12,23 @@ describe("Login Screen", () => {
 
   it("should render login button", () => {
     const wrapper = shallow(<LoginScreen />);
-    expect(typeof(wrapper.find('.login-button').getElement().props.children)).toBe("string");
-    expect(wrapper.find('.login-button').getElement().props.children).toEqual('Login');
-  })
+    expect(
+      typeof wrapper.find(".login-button").getElement().props.children
+    ).toBe("string");
+    expect(wrapper.find(".login-button").getElement().props.children).toEqual(
+      "Login"
+    );
+  });
 
   it("Login button should call mock function when clicked", () => {
     const testClick = jest.fn();
-    const wrapper = shallow(<LoginScreen loginButtonClick={testClick}/>);
-    const loginButton = wrapper.find('button').simulate('click');
-    expect(testClick).toHaveBeenCalled();  
+    const wrapper = shallow(<LoginScreen loginButtonClick={testClick} />);
+    const loginButton = wrapper.find("button").simulate("click");
+    expect(testClick).toHaveBeenCalled();
   });
-  
 });
 
 // https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/simulate.html
-
 
 // describe('<Foo />', () => {
 //   it('allows us to set props', () => {
@@ -52,7 +54,6 @@ describe("Login Screen", () => {
 //     Foo.prototype.componentDidMount.restore();
 //   });
 // });
-
 
 //import React from 'react';
 //import { shallow } from 'enzyme';

@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import FlightList from './Flights/FlightList';
+import FlightList from "./Flights/FlightList";
 
-const CategoryCard = ({category, flightCodes}) => {
 
+const CategoryCard = ({ category, flights, squadronDataOrAnotherName }) => {
   return (
-    <Card style={{ width: "18rem" }}>
+    <>
+    <Card style={{ width: "15rem" }}>
       <Card.Body>
         <Card.Title>{category}</Card.Title>
         <ListGroup>
-            <FlightList flights={flightCodes}/>
+          <FlightList flightCodes={flights} airmen={squadronDataOrAnotherName} />
         </ListGroup>
       </Card.Body>
     </Card>
+
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { useRouteMatch } from "react-router-dom";
 import Airmen from "../Airmen/Airmen";
 import CardModal from "../CardModal";
 
-const FlightList = ({ flightCodes, airmen }) => {
+const FlightList = ({ flightCodes, airmen, category }) => {
   const [bShowModal, setModalShow] = useState(false);
   const [activeFlight, setActiveFlight] = useState("");
   return (
@@ -26,6 +26,7 @@ const FlightList = ({ flightCodes, airmen }) => {
         onHide={() => setModalShow(false)}
         content={airmen}
         flightname={activeFlight}
+        category={category}
       />
     </>
   );

@@ -41,7 +41,7 @@ const CardModal = (props) => {
       console.log(' No entry found for this category! >:( ');
       return;
     }
-    let newClassName = category.trim();
+    let newClassName = category.toLowerCase().trim();
     if (newClassName.includes(' ')) {
       newClassName.replace(' ', '-');
     }

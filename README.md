@@ -97,7 +97,9 @@ When completed with the application logout, Enjoy!
 
 - Implement the ability to have multiple users
 
+- Implement the ADMIN with the ability to see airmenID's on the dashboard for removal purposes
+
 ### Current Bugs
 - All area of readiness cards displays the same information
 - Status colors in modals currently do not update correctly
-- Admin updates are not tracked until the application refreshes
+- Admin updates, add, and remove features are not tracked until the application refreshes

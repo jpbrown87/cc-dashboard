@@ -36,7 +36,7 @@ table {
  * overrides 'color' attribute in '.table'
  */
 .overdue {
-  color: #ed1c24;
+  color: #ed1c24 !important;
 }
 .current {
   color: #39b54a;

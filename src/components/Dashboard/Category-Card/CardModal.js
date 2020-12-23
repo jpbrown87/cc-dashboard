@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import './CardModal.css'
+import "./CardModal.css";
 
 const CardModal = (props) => {
   const flightData = props.content.filter((element) => {
@@ -35,24 +35,24 @@ const CardModal = (props) => {
               <th scope="col">Medical</th>
             </tr>
             <tbody>
-            {flightData[0] !== undefined ? (
-              flightData[0].flightData.result.map((element, idx) => {
-                return (
-                  <tr>
-                    <th scope="row">{idx + 1}</th>
-                    <td>{element.airmanData.firstName}</td>
-                    <td>{element.airmanData.lastName}</td>
-                    <td>{element.airmanData.evaluation}</td>
-                    <td>{element.airmanData.adls}</td>
-                    <td>{element.airmanData.pt}</td>
-                    <td>{element.airmanData.medical}</td>
-                  </tr>
-                );
-              })
-            ) : (
-              <h1>false</h1>
-            )}
-          </tbody>
+              {flightData[0] !== undefined ? (
+                flightData[0].flightData.result.map((element, idx) => {
+                  return (
+                    <tr>
+                      <th scope="row">{idx + 1}</th>
+                      <td>{element.airmanData.firstName}</td>
+                      <td>{element.airmanData.lastName}</td>
+                      <td>{element.airmanData.evaluation}</td>
+                      <td>{element.airmanData.adls}</td>
+                      <td>{element.airmanData.pt}</td>
+                      <td>{element.airmanData.medical}</td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <h1>false</h1>
+              )}
+            </tbody>
           </thread>
         </table>
       </Modal.Body>

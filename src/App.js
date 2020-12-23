@@ -25,9 +25,11 @@ class App extends Component {
     let output = [];
     await Promise.all(
       await this.state.flightCodes.flights.map(async (code) => {
-        const airmenResponse = await fetch(`https://us-central1-cc-dashboard-afb15.cloudfunctions.net/getAirmen/${code}`);
+        const airmenResponse = await fetch(
+          `https://us-central1-cc-dashboard-afb15.cloudfunctions.net/getAirmen/${code}`
+        );
         const airmenData = await airmenResponse.json();
-        output.push({flightName: code, flightData: airmenData});
+        output.push({ flightName: code, flightData: airmenData });
       })
     );
 
@@ -42,47 +44,45 @@ class App extends Component {
   };
 
   render() {
-    // const loginOrDashboard = this.state.isLoggedIn ? (
-    //   <Route path="/Dashboard">
-    //     <Dashboard
-    //       logoutButtonClick={this.handleLogout}
-    //       flightCodes={this.state.flightCodes}
-    //       squadronDataOrWhateverName={this.state.squadronData}
-    //     />
-    //   </Route>
-    // ) : (
-    //   <Route exact path="/">
-    //     <LoginScreen loginButtonClick={this.handleLogin} />
-    //   </Route>
-    // );
     return (
-      <Router>
-        <Switch>
-          {this.state.isLoggedIn ? (
-            <Route path="/Dashboard">
-              <Dashboard
-                logoutButtonClick={this.handleLogout}
-                flightCodes={this.state.flightCodes}
-                squadronDataOrWhateverName={this.state.squadronData}
-              />
-            </Route>
-          ) : (
-            <Route path="/">
-              <LoginScreen loginButtonClick={this.handleLogin} />
-              <Link to="/Dashboard">
-                <button
-                  onClick={(event) => this.handleLogin(event)}
-                  className="login-button"
-                >
-                  Login
-                </button>
-              </Link>
-            </Route>
-          )}
-        </Switch>
-      </Router>
+      <div className="main">
+        <Router>
+          <Switch>
+            {this.state.isLoggedIn ? (
+              <Route path="/Dashboard">
+                <Dashboard
+                  logoutButtonClick={this.handleLogout}
+                  flightCodes={this.state.flightCodes}
+                  squadronDataOrWhateverName={this.state.squadronData}
+                />
+              </Route>
+            ) : (
+              <Route path="/">
+                  <LoginScreen loginButtonClick={this.handleLogin} />
+                  <Link to="/Dashboard">
+                    <button onClick={(event) => this.handleLogin(event)} className="login-button">Login</button>
+                  </Link>
+              </Route>
+            )}
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
 
 export default App;
+
+// const loginOrDashboard = this.state.isLoggedIn ? (
+//   <Route path="/Dashboard">
+//     <Dashboard
+//       logoutButtonClick={this.handleLogout}
+//       flightCodes={this.state.flightCodes}
+//       squadronDataOrWhateverName={this.state.squadronData}
+//     />
+//   </Route>
+// ) : (
+//   <Route exact path="/">
+//     <LoginScreen loginButtonClick={this.handleLogin} />
+//   </Route>
+// );

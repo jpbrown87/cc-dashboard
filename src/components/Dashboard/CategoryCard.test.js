@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CategoryCard from "./CategoryCard";
+import CategoryCard from "./Category-Card/CategoryCard";
 import { shallow, mount } from "enzyme";
 import React from "react";
 import { Button, Card } from "react-bootstrap";

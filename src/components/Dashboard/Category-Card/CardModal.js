@@ -6,11 +6,48 @@ const CardModal = (props) => {
   const flightData = props.content.filter((element) => {
     return element.flightName === props.flightname;
   });
+
   const getValidFlightData = () =>
     flightData[0] === undefined
-      ? { flightData: [], flightName: "" }
+      ? { flightData: {result: []}, flightName: "" }
       : flightData[0];
   console.log();
+  
+  const getCurrentAnalytics = () => {
+    let out = {
+      current: 0,
+      notCurrent: 0,
+      overdue: 0
+    }
+    const fd = getValidFlightData();
+    
+    if (getValidFlightData().flightData.result.length > 0) {
+      fd.flightData.result.forEach(element => {
+        if (Object.values(element.airmanData).indexOf("overdue") > -1) {
+          out.overdue += 1;
+        } else if (Object.values(element.airmanData).indexOf("not current") > -1) { 
+          out.notCurrent += 1;
+        } else {
+          out.current += 1;
+        }
+      });
+    }
+
+    return out;
+  }
+  
+  const setStatusColor = (category) => {
+    if (!category) {
+      console.log(' No entry found for this category! >:( ');
+      return;
+    }
+    let newClassName = category.trim();
+    if (newClassName.includes(' ')) {
+      newClassName.replace(' ', '-');
+    }
+    return newClassName;
+  }
+
   return (
     <Modal
       {...props}
@@ -21,6 +58,7 @@ const CardModal = (props) => {
       <Modal.Header closeButton>
         <Modal.Title id="displayed-card">
           <h1>{getValidFlightData().flightName}</h1>
+          <h3>Current: {getCurrentAnalytics().current} Not Current: {getCurrentAnalytics().notCurrent} Overdue: {getCurrentAnalytics().overdue}</h3>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -42,10 +80,10 @@ const CardModal = (props) => {
                       <th scope="row">{idx + 1}</th>
                       <td>{element.airmanData.firstName}</td>
                       <td>{element.airmanData.lastName}</td>
-                      <td>{element.airmanData.evaluation}</td>
-                      <td>{element.airmanData.adls}</td>
-                      <td>{element.airmanData.pt}</td>
-                      <td>{element.airmanData.medical}</td>
+                      <td><span className={`${setStatusColor(element.airmanData.evaluation)}`}>{element.airmanData.evaluation}</span></td>
+                      <td><span className={`${setStatusColor(element.airmanData.adls)}`}>{element.airmanData.adls}</span></td>
+                      <td><span className={`${setStatusColor(element.airmanData.pt)}`}>{element.airmanData.pt}</span></td>
+                      <td><span className={`${setStatusColor(element.airmanData.medical)}`}>{element.airmanData.medical}</span></td>
                     </tr>
                   );
                 })

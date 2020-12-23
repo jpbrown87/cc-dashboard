@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+### The Commander's Dashboard (CC-Dashboard) provides a situational awareness update for all users
+The user will have an all-inclusive administrative tracking system. That allows the individual to spend more time focused on the mission and less time tracking down monthly/yearly requirements.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Current implementation
+The CC-Dashboard provides a quick visual representation of readiness utilizing predetermined status updates. Status updates are tracked by the following standards below:
 
-## Available Scripts
+Status checks of individuals:
+- Current 
+- Not current
+- Overdue 
 
-In the project directory, you can run:
+This allows for a quick visual representation of what is accomplished or missing. Providing leaders with a transparent readiness check of their subordinates, and everyone with a one stop readiness tracker. The color scheme for the 
+different status updates are as follows:
 
-### `npm start`
+Color scheme:
+- Current: Green
+- Not current: Yellow
+- Overdue: Red
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Color scheme definitions dependent upon the category:
+- Green - (Passed, complete, or on-time)
+- Yellow - (upcoming, to be completed)
+- Red - (Overdue)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+A user will need to login with their Common Access Card (CAC) certificates. After, a user logins access will be granted with an appropriate generated dashboard environment. This is determined based off of job status and working title example environments below:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Commanders: access to the dashboard environment that includes the following features:
+         - Highest user access all-inclusive dashboard environment
+         - Access to all flights within his or her squadron
+         - Access to all personnel within those flights
+         - Status checks for the flight and personnel
 
-### `npm run build`
+Chief Enlisted Member: access to the dashboard environment that includes the following features:
+         - Highest user access all-inclusive dashboard environment
+         - Access to all flights within his or her squadron
+         - Access to all personnel within those flights
+         - Status checks for the flight and personnel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Officer in Charge: access to the dashboard environment that includes the following features:
+         - Controlled access limited to job scope
+         - Access to the flight personnel
+         - Status checks for the personnel
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Flight Chiefs: access to the dashboard environment that includes the following features:
+         - Controlled access limited to job scope
+         - Access to the flight personnel
+         - Status checks for the personnel
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Personnel: access to the dashboard environment that includes the following features:
+         - Access to individual information
+         - Status checks for individual member
 
-### `npm run eject`
+Administrator: access to the dashboard environment that includes the following features:
+         - Highest user access all-inclusive dashboard environment
+         - Access to all flights within his or her squadron
+         - Access to all personnel within those flights
+         - Status checks for the flight and personnel
+         - Ability to grant, update, and remove access
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once, a user gains access to an appropriate dashboard environment they will be granted with full access within their job scope. All functionality of the application will be rendered appropriately and will track the following
+areas of readiness:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Physical Fitness: keeps track of readiness through the status checks mentioned above example
+         - Current on PT test or passed: Green 
+         - Not current on PT test passed but upcoming: Yellow
+         - Overdue on PT test required: Red
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Evaluations: keeps track of readiness through the status checks mentioned above example
+         - Current with yearly EPR or OPR: Green
+         - Not current with yearly EPR or OPR: Yellow
+         - Overdue with yearly EPR or OPR: Red
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Advanced Distributed Learning (ADLS): keeps track of readiness through the status checks mentioned above example
+         - Current with yearly, semi-annual requirements: Green
+         - Not current with yearly, semi-annual requirements: Yellow
+         - Overdue with yearly, semi-annual requirements: Red
 
-## Learn More
+Medical: keeps track of readiness through the status checks mentioned above example
+    *** MEDICAL SECTION WILL NOT DISPLAY ANY PII FOR ANYONE JUST READINESS CHECKS ***  
+         - Current on vaccines: Green
+         - Not current on vaccines: Yellow
+         - Overdue on vaccines: Red
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The Dashboard environment will display the areas of readiness on one page and depending on your working environment more features will be accessible. All members will be rendered with the areas of readiness displayed in a card format. Depending on access level you may click on the individual elements of the card to see additional details about the flights, and everyone within your working environment. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+When completed with the application logout, Enjoy!
 
-### Code Splitting
+### TODO list
+- Update environment API retrieval database to be auto generated from the already populated Military databases
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Update dashboard environment so individual cards only display information that is needed for that card
 
-### Analyzing the Bundle Size
+- Implement a Rank with individual members
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Implement the ability when ADMIN refactors or add members the application does not need to refresh
 
-### Making a Progressive Web App
+- Implement the ability to have multiple users
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Current Bugs
+- All area of readiness cards displays the same information
+- Status colors in modals currently do not update correctly
+- Admin updates are not tracked until the application refreshes

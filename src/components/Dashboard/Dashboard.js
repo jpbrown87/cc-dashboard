@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import CategoryCard from "./Category-Card/CategoryCard";
 import "./Dashboard.css";
 import AdminCard from "./Category-Card/AdminCard";

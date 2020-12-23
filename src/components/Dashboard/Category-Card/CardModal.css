@@ -31,6 +31,21 @@ table {
   border-collapse: collapse;
 }
 
+/* 
+ * modifies text colour based on status 
+ * overrides 'color' attribute in '.table'
+ */
+.overdue {
+  color: #ed1c24;
+}
+.current {
+  color: #39b54a;
+}
+.not-current {
+  color: #fff200 !important;
+}
+
+
 *, ::after, ::before {
   box-sizing: border-box;
 }
@@ -50,11 +65,11 @@ table {
 
 .modal-footer>.btn-primary{
   color: whitesmoke;
-  background-color: rgb(5, 6, 61);
+  background-color: #2368a2;
   border: none;
 }
 
 
-.modal-body, #displayed-card>h1 {
+.modal-body, #displayed-card>h1, h3 {
   color: whitesmoke;
 }

@@ -99,7 +99,21 @@ When completed with the application logout, Enjoy!
 
 - Implement the ADMIN with the ability to see airmenID's on the dashboard for removal purposes
 
+- Implement the ability for the ADMIN to to PATCH individual Airman fields
+
 ### Current Bugs
 - All area of readiness cards displays the same information
+
 - Status colors in modals currently do not update correctly
+
 - Admin updates, add, and remove features are not tracked until the application refreshes
+
+- On the ECM cards random memebers may not display certain fields of readiness on the dashboard but displays on the server
+
+- ADMIN update does not PATCH it only PUTs so all fields must be refilled out when updating
+
+- When updating members current fields are not read properly on the back end so updates end up with capitalized letters and the values are not registered properly
+
+- Removing Airmen feature does not remove Airmen from the server
+
+- Current, and not current are not fully updating on the dashboard

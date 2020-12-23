@@ -6,10 +6,11 @@ const CardModal = (props) => {
   const flightData = props.content.filter((element) => {
     return element.flightName === props.flightname;
   });
-
   const getValidFlightData = () =>
-    flightData[0] == undefined ? { flightData: [] } : flightData[0];
-
+    flightData[0] === undefined
+      ? { flightData: [], flightName: "" }
+      : flightData[0];
+  console.log();
   return (
     <Modal
       {...props}
@@ -19,12 +20,11 @@ const CardModal = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="displayed-card">
-          <h1>{props.flightName}</h1>
+          <h1>{getValidFlightData().flightName}</h1>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <table className="table">
-          <thread className="thread-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">First Name</th>
@@ -38,7 +38,7 @@ const CardModal = (props) => {
               {flightData[0] !== undefined ? (
                 flightData[0].flightData.result.map((element, idx) => {
                   return (
-                    <tr>
+                    <tr key={Math.floor(Math.random() * idx)}>
                       <th scope="row">{idx + 1}</th>
                       <td>{element.airmanData.firstName}</td>
                       <td>{element.airmanData.lastName}</td>
@@ -53,7 +53,6 @@ const CardModal = (props) => {
                 <h1>false</h1>
               )}
             </tbody>
-          </thread>
         </table>
       </Modal.Body>
       <Modal.Footer>

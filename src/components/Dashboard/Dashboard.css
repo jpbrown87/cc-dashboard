@@ -44,7 +44,7 @@
 }
 
 
-.c{
+.logout-button{
     border-radius: 10px;
     background: none;
     padding: 0px 10px;
@@ -52,6 +52,5 @@
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
 }
-
 
 

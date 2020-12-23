@@ -9,10 +9,10 @@ const CardModal = (props) => {
 
   const getValidFlightData = () =>
     flightData[0] === undefined
-      ? { flightData: {result: []}, flightName: "" }
+      ? { flightData: { result: [] }, flightName: "" }
       : flightData[0];
   console.log();
-  
+
   const getCurrentAnalytics = () => {
     let out = {
       current: 0,
@@ -20,12 +20,12 @@ const CardModal = (props) => {
       overdue: 0
     }
     const fd = getValidFlightData();
-    
+
     if (getValidFlightData().flightData.result.length > 0) {
       fd.flightData.result.forEach(element => {
         if (Object.values(element.airmanData).indexOf("overdue") > -1) {
           out.overdue += 1;
-        } else if (Object.values(element.airmanData).indexOf("not current") > -1) { 
+        } else if (Object.values(element.airmanData).indexOf("not current") > -1) {
           out.notCurrent += 1;
         } else {
           out.current += 1;
@@ -35,7 +35,7 @@ const CardModal = (props) => {
 
     return out;
   }
-  
+
   const setStatusColor = (category) => {
     if (!category) {
       console.log(' No entry found for this category! >:( ');
@@ -63,34 +63,34 @@ const CardModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <table className="table">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Evaluation</th>
-              <th scope="col">ADLS</th>
-              <th scope="col">PT</th>
-              <th scope="col">Medical</th>
-            </tr>
-            <tbody>
-              {flightData[0] !== undefined ? (
-                flightData[0].flightData.result.map((element, idx) => {
-                  return (
-                    <tr key={Math.floor(Math.random() * idx)}>
-                      <th scope="row">{idx + 1}</th>
-                      <td>{element.airmanData.firstName}</td>
-                      <td>{element.airmanData.lastName}</td>
-                      <td><span className={`${setStatusColor(element.airmanData.evaluation)}`}>{element.airmanData.evaluation}</span></td>
-                      <td><span className={`${setStatusColor(element.airmanData.adls)}`}>{element.airmanData.adls}</span></td>
-                      <td><span className={`${setStatusColor(element.airmanData.pt)}`}>{element.airmanData.pt}</span></td>
-                      <td><span className={`${setStatusColor(element.airmanData.medical)}`}>{element.airmanData.medical}</span></td>
-                    </tr>
-                  );
-                })
-              ) : (
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Evaluation</th>
+            <th scope="col">ADLS</th>
+            <th scope="col">PT</th>
+            <th scope="col">Medical</th>
+          </tr>
+          <tbody>
+            {flightData[0] !== undefined ? (
+              flightData[0].flightData.result.map((element, idx) => {
+                return (
+                  <tr key={Math.floor(Math.random() * idx)}>
+                    <th scope="row">{idx + 1}</th>
+                    <td>{element.airmanData.firstName}</td>
+                    <td>{element.airmanData.lastName}</td>
+                    <td><span className={`${setStatusColor(element.airmanData.evaluation)}`}>{element.airmanData.evaluation}</span></td>
+                    <td><span className={`${setStatusColor(element.airmanData.adls)}`}>{element.airmanData.adls}</span></td>
+                    <td><span className={`${setStatusColor(element.airmanData.pt)}`}>{element.airmanData.pt}</span></td>
+                    <td><span className={`${setStatusColor(element.airmanData.medical)}`}>{element.airmanData.medical}</span></td>
+                  </tr>
+                );
+              })
+            ) : (
                 <h1>false</h1>
               )}
-            </tbody>
+          </tbody>
         </table>
       </Modal.Body>
       <Modal.Footer>

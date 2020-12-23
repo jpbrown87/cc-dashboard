@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { ListGroup, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
-import Airmen from "../Airmen/Airmen";
+import { Button } from "react-bootstrap";
 import CardModal from "../CardModal";
 
 const FlightList = ({ flightCodes, airmen }) => {
@@ -32,4 +29,3 @@ const FlightList = ({ flightCodes, airmen }) => {
 };
 
 export default FlightList;
-

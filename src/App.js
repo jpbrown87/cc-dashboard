@@ -57,13 +57,13 @@ class App extends Component {
                 />
               </Route>
             ) : (
-              <Route path="/">
+                <Route path="/">
                   <LoginScreen loginButtonClick={this.handleLogin} />
                   <Link to="/Dashboard">
                     <button onClick={(event) => this.handleLogin(event)} className="login-button">Login</button>
                   </Link>
-              </Route>
-            )}
+                </Route>
+              )}
           </Switch>
         </Router>
       </div>
@@ -72,17 +72,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const loginOrDashboard = this.state.isLoggedIn ? (
-//   <Route path="/Dashboard">
-//     <Dashboard
-//       logoutButtonClick={this.handleLogout}
-//       flightCodes={this.state.flightCodes}
-//       squadronDataOrWhateverName={this.state.squadronData}
-//     />
-//   </Route>
-// ) : (
-//   <Route exact path="/">
-//     <LoginScreen loginButtonClick={this.handleLogin} />
-//   </Route>
-// );

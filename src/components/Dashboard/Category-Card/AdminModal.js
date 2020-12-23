@@ -23,7 +23,7 @@ const AdminModal = (props) => {
 
   const getMethod = () => {
     switch (props.optionname) {
-      case "Add":    return "POST";
+      case "Add": return "POST";
       case "Remove": return "DELETE";
       case "Update": return "PUT";
 
@@ -34,26 +34,26 @@ const AdminModal = (props) => {
   const getBody = () => {
     return props.optionname !== "Remove"
       ? {
-          method: getMethod(),
-          mode: "cors",
-          accept: "*/*",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            firstName: firstName,
-            lastName: lastName,
-            adls: adls,
-            pt: pt,
-            medical: medical,
-            evaluation: evaluation,
-          }),
-        }
+        method: getMethod(),
+        mode: "cors",
+        accept: "*/*",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          adls: adls.toLocaleLowerCase(),
+          pt: pt.toLocaleLowerCase(),
+          medical: medical.toLocaleLowerCase(),
+          evaluation: evaluation.toLocaleLowerCase(),
+        }),
+      }
       : {
-          method: getMethod(),
-          mode: "cors",
-          accept: "*/*",
-        };
+        method: getMethod(),
+        mode: "cors",
+        accept: "*/*",
+      };
   };
 
   return (
@@ -74,7 +74,7 @@ const AdminModal = (props) => {
             e.preventDefault();
             const response = await fetch(createUrl(), getBody());
             const data = await response.json();
-            console.log(data);
+            window.location.reload();
           }}
         >
           <Form.Group size="lg" controlId="text-inputs">
@@ -130,9 +130,9 @@ const AdminModal = (props) => {
                 value={pt}
                 onChange={(e) => setPT(e.target.value)}
               >
-                <option value="Current">Current</option>
-                <option value="Not Current">Not Current</option>
-                <option value="Overdue">Overdue</option>
+                <option value="current">Current</option>
+                <option value="not current">Not Current</option>
+                <option value="overdue">Overdue</option>
               </select>
             )}
             {props.optionname !== "Remove" && (
@@ -145,9 +145,9 @@ const AdminModal = (props) => {
                 value={evaluation}
                 onChange={(e) => setEval(e.target.value)}
               >
-                <option value="Current">Current</option>
-                <option value="Not Current">Not Current</option>
-                <option value="Overdue">Overdue</option>
+                <option value="current">Current</option>
+                <option value="not current">Not Current</option>
+                <option value="overdue">Overdue</option>
               </select>
             )}
             {props.optionname !== "Remove" && (
@@ -160,9 +160,9 @@ const AdminModal = (props) => {
                 value={adls}
                 onChange={(e) => setADLS(e.target.value)}
               >
-                <option value="Current">Current</option>
-                <option value="Not Current">Not Current</option>
-                <option value="Overdue">Overdue</option>
+                <option value="current">Current</option>
+                <option value="not current">Not Current</option>
+                <option value="overdue">Overdue</option>
               </select>
             )}
             {props.optionname !== "Remove" && (
@@ -175,9 +175,9 @@ const AdminModal = (props) => {
                 value={medical}
                 onChange={(e) => setMedical(e.target.value)}
               >
-                <option value="Current">Current</option>
-                <option value="Not Current">Not Current</option>
-                <option value="Overdue">Overdue</option>
+                <option value="current">Current</option>
+                <option value="not current">Not Current</option>
+                <option value="overdue">Overdue</option>
               </select>
             )}
           </Form.Group>

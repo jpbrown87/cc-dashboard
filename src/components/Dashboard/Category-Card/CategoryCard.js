@@ -10,7 +10,7 @@ const CategoryCard = ({ category, flights, squadronDataOrAnotherName }) => {
       <Card.Body>
         <Card.Title>{category}</Card.Title>
         <ListGroup>
-          <FlightList flightCodes={flights} airmen={squadronDataOrAnotherName} />
+          <FlightList flightCodes={flights} airmen={squadronDataOrAnotherName} category={category}/>
         </ListGroup>
       </Card.Body>
     </Card>

@@ -37,6 +37,7 @@ const CardModal = (props) => {
   }
   
   const setStatusColor = (category) => {
+    console.log(flightData);
     if (!category) {
       console.log(' No entry found for this category! >:( ');
       return;

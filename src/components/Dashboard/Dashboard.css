@@ -18,6 +18,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.col {
+    margin-bottom: 20px;
+}
+
 .card-body {
     position: relative;
     display: flex;

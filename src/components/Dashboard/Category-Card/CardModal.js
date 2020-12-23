@@ -42,9 +42,7 @@ const CardModal = (props) => {
       return;
     }
     let newClassName = category.toLowerCase().trim();
-    if (newClassName.includes(' ')) {
-      newClassName.replace(' ', '-');
-    }
+    newClassName = newClassName.replace(' ', '-');
     return newClassName;
   }
 
@@ -80,10 +78,10 @@ const CardModal = (props) => {
                       <th scope="row">{idx + 1}</th>
                       <td>{element.airmanData.firstName}</td>
                       <td>{element.airmanData.lastName}</td>
-                      <td><span className={`${setStatusColor(element.airmanData.evaluation)}`}>{element.airmanData.evaluation}</span></td>
-                      <td><span className={`${setStatusColor(element.airmanData.adls)}`}>{element.airmanData.adls}</span></td>
-                      <td><span className={`${setStatusColor(element.airmanData.pt)}`}>{element.airmanData.pt}</span></td>
-                      <td><span className={`${setStatusColor(element.airmanData.medical)}`}>{element.airmanData.medical}</span></td>
+                      <td className={`${setStatusColor(element.airmanData.evaluation)}`}>{element.airmanData.evaluation}</td>
+                      <td className={`${setStatusColor(element.airmanData.adls)}`}>{element.airmanData.adls}</td>
+                      <td className={`${setStatusColor(element.airmanData.pt)}`}>{element.airmanData.pt}</td>
+                      <td className={`${setStatusColor(element.airmanData.medical)}`}>{element.airmanData.medical}</td>
                     </tr>
                   );
                 })

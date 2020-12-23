@@ -42,9 +42,7 @@ const CardModal = (props) => {
       return;
     }
     let newClassName = category.toLowerCase().trim();
-    if (newClassName.includes(' ')) {
-      newClassName.replace(' ', '-');
-    }
+    newClassName = newClassName.replace(' ', '-');
     return newClassName;
   }
 

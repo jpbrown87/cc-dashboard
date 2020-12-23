@@ -31,19 +31,7 @@ table {
   border-collapse: collapse;
 }
 
-/* 
- * modifies text colour based on status 
- * overrides 'color' attribute in '.table'
- */
-.overdue {
-  color: #ed1c24 !important;
-}
-.current {
-  color: #39b54a;
-}
-.not-current {
-  color: #fff200 !important;
-}
+
 
 
 *, ::after, ::before {
@@ -72,4 +60,18 @@ table {
 
 .modal-body, #displayed-card>h1, h3 {
   color: whitesmoke;
+}
+
+/* 
+ * modifies text colour based on status 
+ * overrides 'color' attribute in '.table'
+ */
+ .overdue {
+  color: #ed1c24;
+}
+.current {
+  color: #39b54a;
+}
+.not-current {
+  color: #fff200;
 }
